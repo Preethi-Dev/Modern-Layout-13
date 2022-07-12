@@ -1,1 +1,200 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&display=swap");
+
+/* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+/* Fonts */
+@font-face {
+  font-family: "Moniqa";
+  src: url(./assets/fonts/Moniqa-Display.ttf);
+}
+
+/* Variables */
+:root {
+  --bg: linear-gradient(153.43deg, #232323 0%, #0d0d0d 50.03%);
+  --primary: #ffffff;
+  --secondary: #000000;
+}
+
+/* Base Styles */
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > .logo,
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo {
+  gap: 0.5rem;
+}
+
+nav .menu {
+  gap: 1rem;
+}
+
+nav .logo h1,
+nav ul li,
+nav .menu p {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+nav .logo h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+nav > ul li,
+.menu p {
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+main p {
+  font-family: "Moniqa";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+main p:nth-last-child(2) {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 200%;
+  text-align: center;
+  letter-spacing: 0.24em;
+  color: var(--secondary);
+
+  text-align: center;
+  width: min-content;
+}
+
+/* Mobile Styles */
+
+header {
+  padding: 1.5rem;
+}
+
+nav ul {
+  display: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: [col-start] repeat(4, [col-start] 1fr) [col-end];
+}
+
+.grid > * {
+  grid-column: col-start / col-end;
+}
+
+main p {
+  font-size: 15rem;
+}
+
+main > .circle,
+p:nth-last-child(2) {
+  grid-row: 2;
+  justify-self: center;
+  align-self: center;
+  z-index: 1;
+}
+
+main p:nth-child(1) {
+  justify-self: start;
+  margin-bottom: -7rem;
+}
+
+main p:last-child {
+  justify-self: end;
+  margin-top: -7rem;
+}
+
+/* Small Tablet Styles */
+@media screen and (min-width: 500px) {
+  main p {
+    font-size: 25rem;
+  }
+  main p:nth-child(1) {
+    margin-bottom: -10rem;
+  }
+
+  main p:last-child {
+    margin-top: -10rem;
+  }
+}
+
+/* Large Tablet and Desktop Styles */
+@media screen and (min-width: 960px) {
+  .grid {
+    grid-template-columns: [col-start] repeat(12, [col-start] 1fr) [col-end];
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  main p {
+    font-size: 35rem;
+  }
+
+  main p:nth-child(1) {
+    grid-row: 1;
+  }
+
+  main p:last-child {
+    grid-row: 2;
+  }
+
+  main > .circle,
+  p:nth-last-child(2) {
+    grid-row: 1 / span 2;
+    z-index: 1;
+  }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1200px) {
+  header {
+    padding: 2.5rem;
+  }
+  main {
+    max-width: 1600px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  main p {
+    font-size: 45rem;
+  }
+}
